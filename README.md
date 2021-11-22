@@ -2,8 +2,23 @@
 
 ## Dockerfile
 
-By default `Dockerfile.debian` is used. But you can `export DOCKERFILE=Dockerfile.rhel`
-to spin up a RHEL based container.
+By default [Dockerfile.debian](Dockerfile.debian) is used. But you can use
+[Dockerfile.rhel](Dockerfile.rhel) to spin up a RHEL based container by executing:
+
+```bash
+export DOCKERFILE=Dockerfile.rhel
+```
+
+## Usage
+
+Quickly spin up a Docker container using Vagrant.
+
+```bash
+vagrant up
+```
+
+By default, SSH is running in the container so you can use `vagrant ssh` to connect to
+it.
 
 ## Licensing
 
