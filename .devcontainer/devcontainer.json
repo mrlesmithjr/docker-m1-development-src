@@ -1,0 +1,29 @@
+{
+	"name": "vagrant-docker-m1-development",
+	"build": {
+		"dockerfile": "../Dockerfile",
+	},
+	"remoteUser": "vagrant",
+	"runArgs": [],
+	"settings": {},
+	"extensions": [
+		"redhat.ansible",
+		"ms-azuretools.vscode-docker",
+		"felipecaputo.git-project-manager",
+		"github.vscode-pull-request-github",
+		"gitlab.gitlab-workflow",
+		"eamodio.gitlens",
+		"hashicorp.terraform",
+		"davidanson.vscode-markdownlint",
+		"njpwerner.autodocstring",
+		"foxundermoon.shell-format",
+		"timonwong.shellcheck",
+		"octref.vetur",
+		"redhat.vscode-yaml",
+		"ms-toolsai.jupyter-keymap",
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"ms-toolsai.jupyter-renderers",
+		"ms-toolsai.jupyter"
+	]
+}
