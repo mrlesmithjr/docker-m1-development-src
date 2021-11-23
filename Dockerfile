@@ -1,23 +1,29 @@
-FROM mrlesmithjr/rocky:8
 # FROM mrlesmithjr/centos:7
+# FROM mrlesmithjr/centos:8
+# FROM mrlesmithjr/debian:10
+# FROM mrlesmithjr/debian:11
+# FROM mrlesmithjr/debian:9
+# FROM mrlesmithjr/rocky:8
+# FROM mrlesmithjr/ubuntu:16.04
+# FROM mrlesmithjr/ubuntu:18.04
+FROM mrlesmithjr/ubuntu:20.04
 
+ENV WRK_DIR /app
 ENV container docker
 
-# hadolint ignore=DL3033
-RUN yum install -y openssh-clients python3-pip python3-setuptools openssh-server \
-    sudo systemd && \
-    yum clean all
+WORKDIR ${WRK_DIR}
+
+COPY . ${WRK_DIR}
+
+RUN ${WRK_DIR}/bootstrap.sh
 
 RUN mkdir /var/run/sshd && \
     ssh-keygen -A && \
     /usr/sbin/sshd
 
-WORKDIR /app
-COPY requirements.txt requirements.txt
-
 # hadolint ignore=DL3013
 RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r requirements.txt
+    pip3 install --no-cache-dir -r ${WRK_DIR}/requirements.txt
 
 # Add vagrant user and key for SSH
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
