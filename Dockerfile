@@ -23,7 +23,8 @@ RUN mkdir /var/run/sshd && \
 
 # hadolint ignore=DL3013
 RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r ${WRK_DIR}/requirements.txt
+    pip3 install --no-cache-dir -r ${WRK_DIR}/requirements.txt \
+    -r ${WRK_DIR}/requirements-dev.txt
 
 # Add vagrant user and key for SSH
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
