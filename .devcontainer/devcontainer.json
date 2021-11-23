@@ -4,12 +4,12 @@
 		"dockerfile": "../Dockerfile",
 	},
 	"remoteUser": "vagrant",
-	"runArgs": [],
+	"runArgs": [
+		"-v",
+		"${localEnv:HOME}/.ssh:/home/vagrant/.ssh:rw"
+	],
 	"settings": {},
 	"extensions": [
-		"redhat.ansible",
-		"ms-azuretools.vscode-docker",
-		"felipecaputo.git-project-manager",
 		"github.vscode-pull-request-github",
 		"gitlab.gitlab-workflow",
 		"eamodio.gitlens",
