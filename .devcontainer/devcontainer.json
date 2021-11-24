@@ -21,6 +21,13 @@
 	"extensions": [
 		"github.vscode-pull-request-github",
 		"eamodio.gitlens",
-		"davidanson.vscode-markdownlint"
+		"davidanson.vscode-markdownlint",
+		"redhat.ansible",
+		"hashicorp.terraform",
+		"foxundermoon.shell-format",
+		"timonwong.shellcheck",
+		"redhat.vscode-yaml",
+		"ms-azuretools.vscode-docker",
+		"njpwerner.autodocstring"
 	]
 }
