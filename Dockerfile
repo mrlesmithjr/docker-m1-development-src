@@ -15,18 +15,19 @@ ARG USER_GID=1000
 ARG USER_UID=1000
 ARG USERNAME=vscode
 
-ENV LC_ALL="C.UTF-8"
+ENV container="docker"
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV DOTFILES_DIR="/home/${USERNAME}/.dotfiles"
 ENV LANG="C.UTF-8"
+ENV LC_ALL="C.UTF-8"
 ENV SHELL="/bin/bash"
 ENV WRK_DIR="/code"
-ENV container="docker"
-ENV DOTFILES_DIR="/home/${USERNAME}/.dotfiles"
 
 WORKDIR ${WRK_DIR}
 
 COPY . ${WRK_DIR}
 
-RUN ${WRK_DIR}/bootstrap.sh
+RUN ${WRK_DIR}/config/bootstrap.sh
 
 RUN groupadd --gid ${USER_GID} ${USERNAME} && \
     useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} && \
