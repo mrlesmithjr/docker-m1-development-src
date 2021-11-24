@@ -5,22 +5,19 @@ description = ""
 authors = ["Larry Smith Jr. <mrlesmithjr@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-
-[tool.poetry.dev-dependencies]
-ansible = "^4.8.0"
-autopep8 = "^1.6.0"
-bandit = "^1.7.1"
-black = "^21.11b1"
-flake8 = "^4.0.1"
-mkdocs = "^1.2.3"
-mypy = "^0.910"
-pip-tools = "^6.4.0"
+python = ">=3.6.2,<4.0"
+ansible = "^4.6.0"
+cookiecutter = "^1.7.3"
+pip-tools = "^6.3.0"
 poetry = "^1.1.11"
 pre-commit = "^2.15.0"
-pycodestyle = "^2.8.0"
+
+[tool.poetry.dev-dependencies]
+bandit = "^1.7.0"
+black = "^21.10b0"
+flake8 = "^4.0.1"
+mypy = "^0.910"
 pylint = "^2.11.1"
-yamllint = "^1.26.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
