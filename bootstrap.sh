@@ -4,7 +4,7 @@
 if [ -f /etc/debian_version ]; then
     apt-get update -y &&
         apt-get install -y --no-install-recommends git libffi-dev openssh-client \
-            python-is-python3 python3-pip ssh sudo systemd wget zsh &&
+            python3-pip python3-setuptools ssh sudo systemd wget zsh &&
         apt-get clean &&
         rm -rf /var/lib/apt/lists/*
 fi

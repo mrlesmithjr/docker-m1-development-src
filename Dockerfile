@@ -1,15 +1,17 @@
-# FROM mrlesmithjr/centos:7
+# FROM mrlesmithjr/centos:7 # FIXME
 # FROM mrlesmithjr/centos:8
-# FROM mrlesmithjr/debian:10
-# FROM mrlesmithjr/debian:11
-# FROM mrlesmithjr/debian:9
+# FROM mrlesmithjr/debian:10 # FIXME
+FROM mrlesmithjr/debian:11
+# FROM mrlesmithjr/debian:9 # FIXME
 # FROM mrlesmithjr/rocky:8
-# FROM mrlesmithjr/ubuntu:16.04
-# FROM mrlesmithjr/ubuntu:18.04
-FROM mrlesmithjr/ubuntu:20.04
+# FROM mrlesmithjr/ubuntu:16.04 # FIXME
+# FROM mrlesmithjr/ubuntu:18.04 # FIXME
+# FROM mrlesmithjr/ubuntu:20.04
 
 ENV WRK_DIR /app
 ENV container docker
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 
 WORKDIR ${WRK_DIR}
 
@@ -21,9 +23,9 @@ RUN mkdir /var/run/sshd && \
     ssh-keygen -A && \
     /usr/sbin/sshd
 
-# hadolint ignore=DL3013
-RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r ${WRK_DIR}/requirements.txt \
+# hadolint ignore=DL3013,DL3042
+RUN --mount=type=cache,target=/root/.cache pip3 install --upgrade pip && \
+    pip3 install -r ${WRK_DIR}/requirements.txt \
     -r ${WRK_DIR}/requirements-dev.txt
 
 # Add vagrant user and key for SSH
