@@ -2,15 +2,6 @@
 
 ## Usage
 
-Quickly spin up a Docker container using Vagrant.
-
-```bash
-vagrant up
-```
-
-By default, SSH is running in the container so you can use `vagrant ssh` to connect to
-it.
-
 ## Licensing
 
 The current licensing model is MIT by default.

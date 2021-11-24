@@ -1,12 +1,18 @@
 {
-	"name": "vagrant-docker-m1-development",
+	"name": "docker-m1-development",
 	"build": {
+		"args": {
+			"IMAGE": "mrlesmithjr/debian:11",
+			"USER_GID": "1000",
+			"USER_UID": "1000",
+			"USERNAME": "vscode",
+		},
 		"dockerfile": "../Dockerfile",
 	},
-	"remoteUser": "vagrant",
+	"remoteUser": "vscode",
 	"runArgs": [
 		"-v",
-		"${localEnv:HOME}/.ssh:/home/vagrant/.ssh:rw"
+		"${localEnv:HOME}/.ssh:/home/vscode/.ssh:rw"
 	],
 	"settings": {},
 	"extensions": [
