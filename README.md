@@ -1,4 +1,4 @@
-# vagrant-docker-m1-development
+# docker-m1-development
 
 ## Usage
 

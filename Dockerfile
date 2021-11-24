@@ -8,7 +8,7 @@ FROM mrlesmithjr/debian:11
 # FROM mrlesmithjr/ubuntu:18.04 # FIXME
 # FROM mrlesmithjr/ubuntu:20.04
 
-ENV WRK_DIR /app
+ENV WRK_DIR /code
 ENV container docker
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
