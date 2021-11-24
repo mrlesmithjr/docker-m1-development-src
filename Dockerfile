@@ -20,6 +20,7 @@ ENV LANG="C.UTF-8"
 ENV SHELL="/bin/bash"
 ENV WRK_DIR="/code"
 ENV container="docker"
+ENV DOTFILES_DIR="/home/${USERNAME}/.dotfiles"
 
 WORKDIR ${WRK_DIR}
 
@@ -32,14 +33,21 @@ RUN groupadd --gid ${USER_GID} ${USERNAME} && \
     echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} && \
     chmod 0440 /etc/sudoers.d/${USERNAME}
 
+RUN mkdir /commandhistory && \
+    touch /commandhistory/.bash_history && \
+    chown -R ${USERNAME} /commandhistory
+
 USER ${USERNAME}
 
 # hadolint ignore=DL3013
-RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r ${WRK_DIR}/requirements.txt \
-    -r ${WRK_DIR}/requirements-dev.txt
-
-RUN git clone https://github.com/mrlesmithjr/dotfiles.git /home/${USERNAME}/.dotfiles \
+RUN git clone https://github.com/mrlesmithjr/dotfiles.git ${DOTFILES_DIR} \
     --recursive && \
-    cp ${WRK_DIR}/install.conf.yaml /home/${USERNAME}/.dotfiles && \
-    /home/${USERNAME}/.dotfiles/install
+    cp ${WRK_DIR}/config/install.conf.yaml ${DOTFILES_DIR} && \
+    ${DOTFILES_DIR}/install && \
+    pip3 install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir -r "${DOTFILES_DIR}/requirements.txt" \
+    -r "${DOTFILES_DIR}/requirements-dev.txt"
+
+# hadolint ignore=SC2086
+RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" && \
+    echo $SNIPPET >> "/home/${USERNAME}/.bashrc"

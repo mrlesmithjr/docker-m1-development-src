@@ -9,6 +9,9 @@
 		},
 		"dockerfile": "../Dockerfile",
 	},
+	"mounts": [
+		"source=projectname-bashhistory,target=/commandhistory,type=volume"
+	],
 	"remoteUser": "vscode",
 	"runArgs": [
 		"-v",
@@ -17,6 +20,7 @@
 	"settings": {},
 	"extensions": [
 		"github.vscode-pull-request-github",
-		"eamodio.gitlens"
+		"eamodio.gitlens",
+		"davidanson.vscode-markdownlint"
 	]
 }
