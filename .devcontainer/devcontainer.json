@@ -13,6 +13,7 @@
 		"source=projectname-bashhistory,target=/commandhistory,type=volume",
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
 	],
+	"postAttachCommand": "sudo chown -h vscode:root /var/run/docker.sock",
 	"remoteUser": "vscode",
 	"runArgs": [
 		"-v",
