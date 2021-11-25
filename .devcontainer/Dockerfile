@@ -7,6 +7,7 @@ ARG IMAGE=mrlesmithjr/debian:11
 # ARG IMAGE=mrlesmithjr/ubuntu:16.04 # FIXME
 # ARG IMAGE=mrlesmithjr/ubuntu:18.04 # FIXME
 # ARG IMAGE=mrlesmithjr/ubuntu:20.04
+# ARG IMAGE=mrlesmithjr/docker-m1-development
 
 # hadolint ignore=DL3006
 FROM ${IMAGE}
@@ -52,3 +53,5 @@ RUN git clone https://github.com/mrlesmithjr/dotfiles.git ${DOTFILES_DIR} \
 # hadolint ignore=SC2086
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" && \
     echo $SNIPPET >> "/home/${USERNAME}/.bashrc"
+
+VOLUME [ "/home/${USERNAME}/Git_Projects", "/home/${USERNAME}/Playground", "/commandhistory", "/home/${USERNAME}/Projects" ]

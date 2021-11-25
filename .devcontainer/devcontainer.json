@@ -7,11 +7,15 @@
 			"USER_UID": "1000",
 			"USERNAME": "vscode",
 		},
-		"dockerfile": "../Dockerfile",
+		"dockerfile": "Dockerfile",
+		"context": "..",
 	},
 	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		"source=git-projects,target=/home/vscode/Git_Projects,type=volume",
+		"source=playground,target=/home/vscode/Playground,type=volume",
 		"source=projectname-bashhistory,target=/commandhistory,type=volume",
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+		"source=projects,target=/home/vscode/Projects,type=volume",
 	],
 	"postAttachCommand": "sudo chown -h vscode:root /var/run/docker.sock",
 	"remoteUser": "vscode",
