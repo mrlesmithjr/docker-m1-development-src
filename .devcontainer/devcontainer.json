@@ -1,5 +1,5 @@
 {
-	"name": "docker-m1-development",
+	"name": "docker-m1-development-src",
 	"build": {
 		"args": {
 			"IMAGE": "mrlesmithjr/debian:11",
