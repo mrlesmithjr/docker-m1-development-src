@@ -12,9 +12,7 @@ to build from.
 
 ## Docker Hub
 
-You can consume this image from Docker hub as `mrlesmithjr/docker-m1-development:arm` or
-`mrlesmithjr/docker-m1-development:amd64`. As there isn't a way to build for multi-arch
-platforms using `devcontainer build` currently.
+You can consume this image from Docker hub as `mrlesmithjr/docker-m1-development`.
 
 ## Docker Management
 
