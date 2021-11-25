@@ -3,9 +3,9 @@
 # Debian/Ubuntu
 if [ -f /etc/debian_version ]; then
     apt-get update -y
-    apt-get install -y --no-install-recommends ca-certificates curl fontconfig \
-        fonts-font-awesome git gnupg libffi-dev lsb-release openssh-client \
-        python3-pip python3-setuptools ssh sudo systemd vim wget zsh
+    apt-get install -y --no-install-recommends build-essential ca-certificates curl \
+        fontconfig fonts-font-awesome git gnupg libffi-dev lsb-release openssh-client \
+        python3-dev python3-pip python3-setuptools ssh sudo systemd vim wget zsh
     # shellcheck source=/dev/null
     source /etc/os-release
     id=$ID
