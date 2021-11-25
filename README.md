@@ -7,7 +7,14 @@ development, etc. For now, my intent is to make a switch to a [VSCode Developmen
 
 ## Docker Images
 
-By default, I am using my own personal [Dockerfiles](https://github.com/mrlesmithjr/dockerfiles).
+By default, I am using my own personal [Dockerfiles](https://github.com/mrlesmithjr/dockerfiles)
+to build from.
+
+## Docker Hub
+
+You can consume this image from Docker hub as `mrlesmithjr/docker-m1-development:arm` or
+`mrlesmithjr/docker-m1-development:amd64`. As there isn't a way to build for multi-arch
+platforms using `devcontainer build` currently.
 
 ## Docker Management
 
