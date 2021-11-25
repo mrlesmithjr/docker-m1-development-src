@@ -1,7 +1,9 @@
-# docker-m1-development
+# docker-m1-development-src
 
 Just a little repo I am putting together as I transition to using an Apple M1 Pro for
 development, etc. For now, my intent is to make a switch to a [VSCode Development Container](https://code.visualstudio.com/docs/remote/containers).
+
+This is the build source for [docker-m1-development](https://github.com/mrlesmithjr/docker-m1-development).
 
 > NOTE: This will also work on non-Apple M1
 
