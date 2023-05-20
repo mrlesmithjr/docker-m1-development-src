@@ -1,12 +1,13 @@
 # ARG IMAGE=mrlesmithjr/centos:7 # FIXME
 # ARG IMAGE=mrlesmithjr/centos:8 # FIXME
 # ARG IMAGE=mrlesmithjr/debian:10 # FIXME
-ARG IMAGE=mrlesmithjr/debian:11
+# ARG IMAGE=mrlesmithjr/debian:11
 # ARG IMAGE=mrlesmithjr/debian:9 # FIXME
 # ARG IMAGE=mrlesmithjr/rocky:8 # FIXME
 # ARG IMAGE=mrlesmithjr/ubuntu:16.04 # FIXME
 # ARG IMAGE=mrlesmithjr/ubuntu:18.04 # FIXME
 # ARG IMAGE=mrlesmithjr/ubuntu:20.04
+ARG IMAGE=mrlesmithjr/ubuntu:22.04
 # ARG IMAGE=mrlesmithjr/docker-m1-development
 
 # hadolint ignore=DL3006

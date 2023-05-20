@@ -7,7 +7,6 @@
 
 - create:
     - ~/Git_Projects/Personal/GitHub
-    - ~/Git_Projects/Personal/GitHub/mrlesmithjr
     - ~/Git_Projects/Personal/GitLab
     - ~/Git_Projects/Work
     - ~/Playground
@@ -30,32 +29,38 @@
       path: .gitignore_global
     ~/.git-template:
       path: .git-template
+    ~/.macos:
+      path: .macos
+      if: "[ `uname` = Darwin ]"
+    ~/.mackup.cfg:
+      path: .mackup.cfg
+      force: true
     ~/.p10k.zsh:
       path: .p10k.zsh
     ~/.pylintrc:
       path: .pylintrc
-    ~/.rubocop.yml:
-      path: .rubocop.yml
-    ~/.tmux.conf:
-      path: .tmux.conf
-    ~/.vim:
-      path: .vim
-    ~/.vimrc:
-      path: .vimrc
     ~/.yamllint.yml:
       path: .yamllint.yml
     ~/.zshrc:
       path: .zshrc
       force: true
+    ~/.Brewfile:
+      path: homebrew/Brewfile
+      force: true
 
 - shell:
     - command: git submodule update --init --recursive
       description: Installing submodules
-    - command: if [ ! -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then git clone https://github.com/magicmonty/bash-git-prompt.git "$HOME/.bash-git-prompt" --depth=1; fi
+    - command: ./setup.sh
+      description: Executing setup script
+      stdout: true
+      stderr: true
+      stdin: true
+    - command: if [[ $(uname) == "Linux" ]]; then if [ ! -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then git clone https://github.com/magicmonty/bash-git-prompt.git "$HOME/.bash-git-prompt" --depth=1; fi; fi
       description: Installing bash-git-prompt
-    - command: if [ ! -d "$HOME/.oh-my-zsh" ]; then git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"; fi
+    - command: if [ ! -f "$HOME/.netrc" ]; then touch "$HOME/.netrc"; fi
+      description: Creating $HOME/.netrc
+    - command: if [[ ! -d "$HOME"/.oh-my-zsh ]]; then git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME"/.oh-my-zsh; fi
       description: Installing oh-my-zsh
-    - command: if [ ! -d "$HOME/powerlevel10k" ]; then git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME"/powerlevel10k; fi
+    - command: if [[ ! -d "$HOME"/powerlevel10k ]]; then git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME"/powerlevel10k; fi
       description: Installing Powerlevel10k
-    - command: vim +BundleInstall +qall 2 &>/dev/null
-      description: Installing VIM bundles
