@@ -19,18 +19,23 @@
   ],
   "postAttachCommand": "sudo chown -h vscode:root /var/run/docker.sock",
   "remoteUser": "vscode",
-  "runArgs": ["-v", "${localEnv:HOME}/.ssh:/home/vscode/.ssh:rw"],
-  "customizations": { "vscode": { "extensions": [
-			"ms-azuretools.vscode-docker",
-			"redhat.ansible",
-			"ms-python.python",
-			"foxundermoon.shell-format",
-			"redhat.vscode-yaml",
-			"timonwong.shellcheck",
-			"ms-python.vscode-pylance",
-			"ms-python.flake8",
-			"eamodio.gitlens",
-			"DavidAnson.vscode-markdownlint",
-			"esbenp.prettier-vscode"
-		], "settings": {} } }
+  "runArgs": [],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "redhat.ansible",
+        "ms-python.python",
+        "foxundermoon.shell-format",
+        "redhat.vscode-yaml",
+        "timonwong.shellcheck",
+        "ms-python.vscode-pylance",
+        "ms-python.flake8",
+        "eamodio.gitlens",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {}
+    }
+  }
 }
